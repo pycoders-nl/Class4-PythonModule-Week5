@@ -75,7 +75,6 @@ class Customer:
         self.customer_id = customer_id
         self.name = name
         self.surname = surname
-        pass
 
     def __str__(self):
         return f"Customer name: {self.name}, Surname: {self.surname}, Customer id: {self.customer_id}"
