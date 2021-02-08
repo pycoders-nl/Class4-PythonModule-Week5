@@ -21,8 +21,8 @@ class TicTacToe:
     #Paneli print yapiyoruz
     def createPanel(self):
         print(self.panel[0], self.panel[1], self.panel[2])
-            print(self.panel[3], self.panel[4], self.panel[5])
-                print(self.panel[6], self.panel[7], self.panel[8])
+        print(self.panel[3], self.panel[4], self.panel[5])
+        print(self.panel[6], self.panel[7], self.panel[8])
 
     #oyuncu 1 in hangi numaraya X koymasini gerektigini soruyoruz.
     #eger sectigi sayida bir isaret (X or O) yoksa isaretliyoruz. moves 1 arttiriyoruz.
