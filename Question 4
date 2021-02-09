@@ -1,0 +1,59 @@
+# 4.odev
+
+class Items():
+    def __init__(self,musteri_kodu):
+        self.musteri_kodu=musteri_kodu
+        self.product =["elma", "muz", "patates", "deterjan"]
+        self.price = {"elma":100, "muz":30,"patates": 50,"deterjan": 120}
+        self.total_price=0
+        self.price_tobe_paid=0
+        self.alinan_urunler=[]
+        self.alinan_miktarlar=[]
+        self.eleman=int(input("kac urun alacaksiniz? "))
+        self.total_discount=0
+#         self.discount=0
+        
+    def __str__(self):
+        print(f"musteri kodu:{self.musteri_kodu} ve urun fiyatlari : {self.price}")
+
+    def calculate_discount(self):
+        for i in range(self.eleman):
+            self.total_price+=self.price[self.alinan_urunler[i]]*self.alinan_miktarlar[i]  #self.katalog[i]
+        if self.total_price >= 4000:
+            self.discount=0.25
+        elif self.total_price >= 2000:
+            self.discount=0.15
+        elif self.total_price < 2000:
+            self.discount=0.1
+        return self.discount
+            
+    def shopping_cart(self):
+        for i in range(self.eleman):
+            self.urunler=input("alacaginiz urunu giriniz: ")
+            self.qty=int(input("alacaginiz urunu miktarini giriniz: "))
+            self.alinan_urunler.append(self.urunler)
+            self.alinan_miktarlar.append(self.qty)
+        return self.alinan_urunler, self.alinan_miktarlar
+            
+    def get_total_amount(self):
+        self.price_tobe_paid = self.total_price*(1-self.discount)
+        self.total_discount=self.total_price*self.discount
+        print(f"toplam odenen:{self.price_tobe_paid} toplam indirim:{self.total_discount}")
+
+class Customer(Items):
+    def __init__(self,musteri_kodu):
+        super().__init__(musteri_kodu)
+        
+    def __str__(self):
+        return f"musteri kodu:{self.musteri_kodu} aldigi urunler {self.alinan_urunler} ve odedigi miktar {self.price_tobe_paid} ve toplam indirim {self.total_discount}"
+        
+a=Items("123")
+a.shopping_cart()
+a.calculate_discount()
+a.get_total_amount()
+b=Customer("123")
+b.shopping_cart()
+b.calculate_discount()
+b.get_total_amount()
+print(b.price_tobe_paid)
+print(b.__str__())
