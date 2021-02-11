@@ -132,6 +132,8 @@ class Items:
         print('''
 YOUR SHOPPING CART
 ----------------------------------------------------------------------------
+                                                                    Total Per Item
+                                                                    ----------------
 {}
             SUB TOTAL                                          =    €{}
             DISCOUNT                                           =    €{}(%{})
