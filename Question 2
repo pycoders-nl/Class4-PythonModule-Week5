@@ -1,0 +1,37 @@
+# Question 2:
+
+class Iteminfo:
+        
+    def __init__(self,item): #item_code=0, item, price=None, qty=None,net_price=None
+        self.item_code = 0
+        self.item=item
+        self.price = None
+        self.qty = None
+        self.net_price = None
+        self.discount = None
+
+    def buy(self):
+        self.item_code = int(input("Enter the item code: ")) 
+#         self.item = input("Enter the item name " )
+        self.price = int(input("Enter the price: " ))
+        self.qty = int(input("Enter the quantity: " ))
+        
+    def calculate_discount(self):
+        if self.qty <= 10:
+            self.discount = 0
+        elif self.qty<=20 and self.qty>=11:
+            self.discount = 15
+        elif self.qty>20:
+            self.discount = 20
+        self.net_price=(self.price*self.qty - self.discount)
+        return self.net_price
+    
+    def show_all(self):
+        print("\n\nitem code {} \nitem name {} \nprice {} \nquantity {} \ndiscount amount {} \nnet price {}".format(self.item_code, self.item, self.price, self.qty, self.discount, self.net_price))
+
+a=Iteminfo("defter")
+a.buy()
+# a.show_all()
+a.calculate_discount()
+a.show_all()
+                             

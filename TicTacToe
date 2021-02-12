@@ -1,0 +1,54 @@
+#tictactoe oyunu
+import random
+class TicTacToe():
+    
+    def __init__(self):
+        self.ilk = random.choice(["x","y"])
+        self.liste=[0,0,0,0,0,0,0,0,0]
+        
+    def who_starts(self):
+        print("oyuna baslayacak kisi ", self.ilk)
+        print("",self.liste[0],self.liste[1],self.liste[2],"\n",self.liste[3],self.liste[4],self.liste[5],"\n",self.liste[6],self.liste[7],self.liste[8])
+        self.let_play()
+
+    def let_play(self):
+        if self.ilk=="x":
+            for i in range(1,10):
+                if i%2==1:
+                    x=int(input("X numarali oyuncu oynasin: 1-9 arasi"))
+                    self.liste[x-1]="x"
+                    print("",self.liste[0],self.liste[1],self.liste[2],"\n",self.liste[3],self.liste[4],self.liste[5],"\n",self.liste[6],self.liste[7],self.liste[8])
+
+                else:
+                    y=int(input("Y numarali oyuncu oynasin: 1-9 arasi"))
+                    self.liste[y-1]="y"
+                    print("",self.liste[0],self.liste[1],self.liste[2],"\n",self.liste[3],self.liste[4],self.liste[5],"\n",self.liste[6],self.liste[7],self.liste[8])
+
+                if i>4:
+                    if self.liste[:3]==["x","x","x"] or self.liste[3:6]==["x","x","x"] or self.liste[6:9]==["x","x","x"] or self.liste[::3]==["x","x","x"] or self.liste[1::3]==["x","x","x"] or self.liste[2::3]==["x","x","x"] or self.liste[::4]==["x","x","x"] or self.liste[2:7:2]==["x","x","x"] :
+                        print ("kazanan X oldu")
+                        break
+                    elif self.liste[:3]==["y","y","y"] or self.liste[3:6]==["y","y","y"] or self.liste[6:9]==["y","y","y"] or self.liste[::3]==["y","y","y"] or self.liste[1::3]==["y","y","y"] or self.liste[2::3]==["y","y","y"] or self.liste[::4]==["y","y","y"] or self.liste[2:7:2]==["y","y","y"] :                     
+                        print ("kazanan y oldu")
+                        break
+        elif self.ilk=="y":
+            for i in range(1,10):
+                if i%2==0:
+                    x=int(input("X numarali oyuncu oynasin: 1-9 arasi"))
+                    self.liste[x-1]="x"
+                    print("",self.liste[0],self.liste[1],self.liste[2],"\n",self.liste[3],self.liste[4],self.liste[5],"\n",self.liste[6],self.liste[7],self.liste[8])
+
+                else:
+                    y=int(input("Y numarali oyuncu oynasin: 1-9 arasi"))
+                    self.liste[y-1]="y"
+                    print("",self.liste[0],self.liste[1],self.liste[2],"\n",self.liste[3],self.liste[4],self.liste[5],"\n",self.liste[6],self.liste[7],self.liste[8])
+
+                if i>4:
+                    if self.liste[:3]==["x","x","x"] or self.liste[3:6]==["x","x","x"] or self.liste[6:9]==["x","x","x"] or self.liste[::3]==["x","x","x"] or self.liste[1::3]==["x","x","x"] or self.liste[2::3]==["x","x","x"] or self.liste[::4]==["x","x","x"] or self.liste[2:7:2]==["x","x","x"] :
+                        print ("kazanan X oldu")
+                        break
+                    elif self.liste[:3]==["y","y","y"] or self.liste[3:6]==["y","y","y"] or self.liste[6:9]==["y","y","y"] or self.liste[::3]==["y","y","y"] or self.liste[1::3]==["y","y","y"] or self.liste[2::3]==["y","y","y"] or self.liste[::4]==["y","y","y"] or self.liste[2:7:2]==["y","y","y"] :                     
+                        print ("kazanan y oldu")
+                        break                
+a=TicTacToe()
+print(a.who_starts())
